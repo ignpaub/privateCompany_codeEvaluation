@@ -24,27 +24,27 @@ Even though there is a Dockerfile to build and run the program, it works in Ubun
    ```shell 
 	 sudo docker exec -it intermodalics_teachrepeat /bin/bash
    ```
-7. In all three terminals, access the workspace, and source it:
+6. In all three terminals, access the workspace, and source it:
    ```shell 
 	 cd /root/turtlebot3_ws/ && colcon build && source install/setup.bash
    ```
-8. Terminal 1 will launch Gazebo with waffle_pi:
+7. Terminal 1 will launch Gazebo with waffle_pi:
    ```shell 
 	 ros2 launch turtlebot3_gazebo empty_world.launch.py
    ```
-9. Terminal 2 will launch the teleoperation node:
+8. Terminal 2 will launch the teleoperation node:
    ```shell 
-   ros2 run turtlebot3_teleop teleop_keyboard
-   ```
-10. Terminal 3 will launch the get_trajectories node (once the robot is positioned on the desired start position) and will save the file at /root/turtlebot3_ws/path.csv. Once the trajectory is recorded, kill all 3 processes in the three terminals.
+	 ros2 run turtlebot3_teleop teleop_keyboard
+   ```	
+9. Terminal 3 will launch the get_trajectories node (once the robot is positioned on the desired start position) and will save the file at /root/turtlebot3_ws/path.csv. Once the trajectory is recorded, kill all 3 processes in the three terminals:
    ```shell 
-   ros2 run intermodalics_teachrepeat get_trajectories --ros-args -p parent_frame:=odom -p child_frame:=base_footprint -p output_csv:=path.csv
-   ```
-11. To visualize the trajectory, launch rviz2 and load the topic /robot_trajectory to visualize it in a terminal after executing the following command. Other option would be open the .csv file and edit the trajectory.
+	 ros2 run intermodalics_teachrepeat get_trajectories --ros-args -p parent_frame:=odom -p child_frame:=base_footprint -p output_csv:=path.csv
+   ```	
+10. To visualize the trajectory, launch rviz2 and load the topic /robot_trajectory to visualize it in a terminal after executing the following command. Other option would be open the .csv file and edit the trajectory:
    ```shell 
 	 ros2 run intermodalics_teachrepeat visualize_trajectories
    ```
-12. To replay the trajectory, relaunch Gazebo with waffle_pi (terminal 1) and the following command in terminal 2:
+11. To replay the trajectory, relaunch Gazebo with waffle_pi (terminal 1) and the following command in terminal 2:
    ```shell 
 	 ros2 run intermodalics_teachrepeat replay_trajectories path.csv
    ```
