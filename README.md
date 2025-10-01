@@ -1,5 +1,5 @@
 # Teach and repeat trajectory using a Turtlebot3 Waffle Pi
-‭C++ coding evaluation for Senior Robotics Sofrware Engineer at Intermodalics (Leuven, Belgium).  
+‭Time limited C++ coding evaluation for Senior Robotics Sofrware Engineer at Intermodalics (Leuven, Belgium).  
 
 # Requirements
 Even though there is a Dockerfile to build and run the program, it works in Ubuntu 24.04.3 LTS and ROS 2 Jazzy.
