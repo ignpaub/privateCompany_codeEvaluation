@@ -27,12 +27,12 @@ RUN apt-get update && curl https://packages.osrfoundation.org/gazebo.gpg --outpu
 SHELL ["/bin/bash", "-c"]
 RUN source /opt/ros/jazzy/setup.bash && mkdir -p ~/turtlebot3_ws/src && cd ~/turtlebot3_ws/src/ && git clone -b jazzy https://github.com/ROBOTIS-GIT/DynamixelSDK.git && git clone -b jazzy https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git && git clone -b jazzy https://github.com/ROBOTIS-GIT/turtlebot3.git && git clone -b jazzy https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
 
-RUN source /opt/ros/jazzy/setup.bash && cd ~/turtlebot3_ws/src/ && ros2 pkg create --build-type ament_cmake intermodalics_teachrepeat && source /opt/ros/jazzy/setup.bash && cd ~/turtlebot3_ws && colcon build --parallel-workers $(nproc) --symlink-install
-COPY ./CMakeLists.txt /root/turtlebot3_ws/src/intermodalics_teachrepeat/CMakeLists.txt
-COPY ./package.xml /root/turtlebot3_ws/src/intermodalics_teachrepeat/package.xml
-COPY ./get_trajectories.cpp /root/turtlebot3_ws/src/intermodalics_teachrepeat/src/get_trajectories.cpp
-COPY ./visualize_trajectories.cpp /root/turtlebot3_ws/src/intermodalics_teachrepeat/src/visualize_trajectories.cpp
-COPY ./replay_trajectories.cpp /root/turtlebot3_ws/src/intermodalics_teachrepeat/src/replay_trajectories.cpp
+RUN source /opt/ros/jazzy/setup.bash && cd ~/turtlebot3_ws/src/ && ros2 pkg create --build-type ament_cmake privateCompany_teachrepeat && source /opt/ros/jazzy/setup.bash && cd ~/turtlebot3_ws && colcon build --parallel-workers $(nproc) --symlink-install
+COPY ./CMakeLists.txt /root/turtlebot3_ws/src/privateCompany_teachrepeat/CMakeLists.txt
+COPY ./package.xml /root/turtlebot3_ws/src/privateCompany_teachrepeat/package.xml
+COPY ./get_trajectories.cpp /root/turtlebot3_ws/src/privateCompany_teachrepeat/src/get_trajectories.cpp
+COPY ./visualize_trajectories.cpp /root/turtlebot3_ws/src/privateCompany_teachrepeat/src/visualize_trajectories.cpp
+COPY ./replay_trajectories.cpp /root/turtlebot3_ws/src/privateCompany_teachrepeat/src/replay_trajectories.cpp
 
 RUN source /opt/ros/jazzy/setup.bash &&\
     cd ~/turtlebot3_ws &&\
